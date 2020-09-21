@@ -29,10 +29,11 @@ const SearchBox = (props) => {
                 console.log('data from axios request to github API = ', data);
                 setError(false);
 
+                setOption(endpoint);
                 if (endpoint === '') {
                     setUser(data);
+                    setResults('');
                 } else {
-                    setOption(endpoint);
                     setResults(data);
                 }
 
@@ -133,10 +134,10 @@ const SearchBox = (props) => {
                 {/* if repos or starred requests were made, show results */}
                 {results && (
                     <div className="results">
-                        <h3 className="results__title">results</h3>
 
                         {option && option==='/repos' && (
                             <div className="results__container">
+                                <h3 className="results__title">Repositories</h3>
                                 {results.map(r => (
                                     <div className="results__item" key={r.id}>
                                         <a 
@@ -151,6 +152,7 @@ const SearchBox = (props) => {
 
                         {option && option==='/starred' && (
                             <div className="results__container">
+                                <h3 className="results__title">Starred</h3>
                                 {results.map(r => (
                                     <div className="results__item" key={r.id}>
                                         <p className="results__repo">
