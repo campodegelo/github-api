@@ -1,21 +1,18 @@
 .header {
-    height: 14vh;
-    position: relative;
-    background-color: $color-black;
+    // height: 9.2vh;
+    padding: 1rem;
     
-    &__logo-box {
-        position: absolute;
-        top: 4rem;
-        left: 4rem;
-    }
+    position: relative;
+    background-color: $color-primary-dark;
     
     &__logo {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        height: 70%;
-        filter: invert(1);
-        margin-left: 3rem;
+        // position: relative;
+        // top: 50%;
+        // transform: tkranslateY(-50%);
+        // height: 70%;
+        // filter: invert(.9);
+        margin-left: 3.5rem;
+        height: 4rem;
     }
     
     &__text-box {
@@ -23,10 +20,10 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        text-align: center;
+        // text-align: center;
         text-transform: uppercase;
-        color: $color-white;
-        font-size: 3rem;
+        color: $color-primary;
+        font-size: 2rem;
     }
     
 }

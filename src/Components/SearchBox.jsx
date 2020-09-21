@@ -63,14 +63,16 @@ const SearchBox = (props) => {
     return (
         <div className="container">
             {error && (
-                <p className="error">ERROR</p>
+                <p className="error">ERROR! Please try again...</p>
             )}
 
             <div className="side-menu">
                 <div className="form">
+                    <h2 className="side-menu__title">Repositories</h2>
                     <div className="form__group">
                         <input
-                            type="text"                            name="username"
+                            type="text"                            
+                            name="username"
                             placeholder="Username to be searched"
                             className="form__input"
                             autoComplete="off"
@@ -97,28 +99,32 @@ const SearchBox = (props) => {
                 {/* if there is a username in the url, show the user information from the API inquiry */}
                 {user && (
                     <div className="user">
-                        <h2 className="user__name">
-                            {user.name}
-                        </h2>
-
-                        <h3 className="user__name">
-                            {user.login}
-                        </h3>
-
                         <img src={user.avatar_url} alt={user.login} className="user__image"/>
 
+                        <div className="user__info">
+                            <h2 className="user__name">
+                                {user.name}
+                            </h2>
 
-                        <button 
-                            className="btn btn--animated"
-                            onClick={() => handleSearch(values.username, '/repos')}
-                        >repos
-                        </button>
-                        
-                        <button 
-                            className="btn btn--animated"
-                            onClick={() => handleSearch(values.username, '/starred')}
-                        >starred
-                        </button>
+                            <h3 className="user__login">
+                                {user.login}
+                            </h3>
+                        </div>
+
+                        <div className="user__buttons">
+                            <button 
+                                className="btn btn--animated"
+                                onClick={() => handleSearch(values.username, '/repos')}
+                            >repos
+                            </button>
+                            
+                            <button 
+                                className="btn btn--animated"
+                                onClick={() => handleSearch(values.username, '/starred')}
+                            >starred
+                            </button>
+                        </div>
+
 
                     </div>
 

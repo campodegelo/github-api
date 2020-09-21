@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="header">
         <h1 className="header__text-box">Github API</h1>
-        <img src="/github.png" alt="github" className="header__logo"/>
+        <img src="/logo.png" alt="github" className="header__logo"/>
       </header>
 
       <SearchBox></SearchBox>
