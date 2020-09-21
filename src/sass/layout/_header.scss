@@ -1,0 +1,32 @@
+.header {
+    height: 14vh;
+    position: relative;
+    background-color: $color-black;
+    
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+    
+    &__logo {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 70%;
+        filter: invert(1);
+        margin-left: 3rem;
+    }
+    
+    &__text-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        text-transform: uppercase;
+        color: $color-white;
+        font-size: 3rem;
+    }
+    
+}

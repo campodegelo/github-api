@@ -18,8 +18,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "watch:sass": "node-sass src/sass/main.scss src/css/style.css -w",
-    "devserver": "live-server",
-    "startdev": "npm-run-all --parallel devserver watch:sass",
     "compile:sass": "node-sass src/sass/main.scss src/css/style.comp.css",
     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' src/css/style.comp.css -o src/css/style.prefix.css",
     "compress:css": "node-sass src/css/style.prefix.css src/css/style.css --output-style compressed",
@@ -41,7 +39,7 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^10.0.0",
+    "autoprefixer": "^9.8.5",
     "concat": "^1.0.3",
     "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
