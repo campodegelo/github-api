@@ -20,13 +20,11 @@ const SearchBox = (props) => {
 
     const handleSearch = (values, endpoint) => {
         let username;
-        // console.log('option = ', option);
 
         if (endpoint === 'url') {
             endpoint = '';
             username = document.location.pathname.split('/')[1];
         } else {
-            console.log('typeof values = ', values);
             if (values === undefined) {
                 setError(true);
                 return;
@@ -36,16 +34,13 @@ const SearchBox = (props) => {
             }
         }
 
-
-        console.log("username = ", username);
         const request = '/users/' + username + endpoint;
-
 
         (async () => {
 
             try {
                 const {data} = await axios.get(baseUrl + request);
-                console.log('data from axios request to github API = ', data);
+                // console.log('data from axios request to github API = ', data);
                 setError(false);
 
                 setOption(endpoint);
@@ -58,10 +53,7 @@ const SearchBox = (props) => {
 
             } catch(err) {
                 console.log('error fetching username from github api: ', err);
-
-                console.log('user = ', user);
                 // if username is set and the new one is not found 
-
                 setError(true);
             }
 
@@ -72,7 +64,6 @@ const SearchBox = (props) => {
     useEffect(() => {
 
         // checks if the username is part of the pathname
-        console.log('document = ', document.location.pathname.split('/')[1]);
         if (document.location.pathname !== '/') {
             setValues({
                 ...values,
