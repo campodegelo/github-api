@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import axios from 'axios';
 
 const SearchBox = (props) => {
@@ -18,9 +18,28 @@ const SearchBox = (props) => {
         })
     }
 
-    const handleSearch = (username, endpoint) => {
-        console.log("values = ", username);
+    const handleSearch = (values, endpoint) => {
+        let username;
+        // console.log('option = ', option);
+
+        if (endpoint === 'url') {
+            endpoint = '';
+            username = document.location.pathname.split('/')[1];
+        } else {
+            console.log('typeof values = ', values);
+            if (values === undefined) {
+                setError(true);
+                return;
+            } else {
+                setError(false);
+                username = values.username;
+            }
+        }
+
+
+        console.log("username = ", username);
         const request = '/users/' + username + endpoint;
+
 
         (async () => {
 
@@ -55,7 +74,9 @@ const SearchBox = (props) => {
                 ...values,
                 'username': document.location.pathname.split('/')[1]
             });
-            handleSearch(document.location.pathname.split('/')[1], '');
+            setOption('url');
+            handleSearch(document.location.pathname.split('/')[1], 'url');
+            // handleSearch(values, '');
         }
 
     },[]);
@@ -89,7 +110,7 @@ const SearchBox = (props) => {
 
                     <button
                         className="btn btn--animated btn--primary"
-                        onClick={() => handleSearch(values.username, '')}
+                        onClick={() => handleSearch(values, '')}
                     >search
                     </button>
                 </div>
@@ -115,13 +136,13 @@ const SearchBox = (props) => {
                         <div className="user__buttons">
                             <button 
                                 className="btn btn--animated"
-                                onClick={() => handleSearch(values.username, '/repos')}
+                                onClick={() => handleSearch(values, '/repos')}
                             >repos
                             </button>
                             
                             <button 
                                 className="btn btn--animated"
-                                onClick={() => handleSearch(values.username, '/starred')}
+                                onClick={() => handleSearch(values, '/starred')}
                             >starred
                             </button>
                         </div>
@@ -136,10 +157,11 @@ const SearchBox = (props) => {
                     <div className="results">
 
                         {option && option==='/repos' && (
-                            <div className="results__container">
+                            <Fragment>
                                 <h3 className="results__title">Repositories</h3>
                                 {results.map(r => (
                                     <div className="results__item" key={r.id}>
+                                        <img src="/icon.png" alt="icon" className="results__item-icon"/>
                                         <a 
                                             href={r.html_url}            target="__blank" className="results__link"
                                         >{r.name}
@@ -147,26 +169,26 @@ const SearchBox = (props) => {
                                         
                                     </div>
                                 ))}
-                            </div>
+                            </Fragment>
                         )}
 
                         {option && option==='/starred' && (
-                            <div className="results__container">
+                            <Fragment>
                                 <h3 className="results__title">Starred</h3>
                                 {results.map(r => (
-                                    <div className="results__item" key={r.id}>
-                                        <p className="results__repo">
-                                            {r.full_name}
-                                        </p>
+                                    <div className="results__item--individual" key={r.id}>
 
                                         <div className="results__moreInfo">
-                                            <p className="p results__moreInfo--login">{r.owner.login}</p>
-                                            <img src={r.owner.avatar_url} alt={r.login} className="results__moreInfo--avatar"/>
+                                            <p className="results__moreInfo-title">
+                                                {r.full_name}
+                                            </p>
+                                            <p className="p results__moreInfo-login">{r.owner.login}</p>
+                                            <img src={r.owner.avatar_url} alt={r.login} className="results__moreInfo-avatar"/>
 
                                         </div>
                                     </div>
                                 ))}
-                            </div>
+                            </Fragment>
                         )}
 
 

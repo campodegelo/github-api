@@ -1,0 +1,55 @@
+.results {
+    position: relative;
+    background-color: $color-primary-light;
+    border: 1px solid $color-primary-intermediate;
+    border-radius: 5px;
+    // height: 10rem;
+    padding: 1rem;  
+    margin-left: 5rem;
+    font-size: 1.5rem;
+
+    &__title {
+
+    }
+
+    &__link {
+        text-decoration: none;
+        position: absolute;
+        margin-left: .5rem;
+        font-weight: 600;
+        color: $color-secondary-dark;
+    }
+
+    &__item {
+        display: block;
+        margin: 1rem;
+
+        &-icon {
+            height: 2.5rem;
+        }
+
+        &--individual {
+            border: 1px solid #E1E4E8;
+            border-radius: 5px;
+            padding: 2rem;
+            margin-left: 5rem;
+            margin-top: 2rem;
+        }
+    }
+
+    &__moreInfo {
+        position: relative;
+
+        &-avatar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 5rem;
+            border-radius: 50%;
+        }
+
+        &-title {
+            font-weight: 600;
+        }
+    }
+}

@@ -160,6 +160,22 @@ body {
   background-color: #2C974B;
   color: #fff; }
 
+.btn--animated {
+  animation: moveInBottom .5s ease-out .75s;
+  animation-fill-mode: backwards; }
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s; }
+
 .form {
   transition: all 3s; }
   .form__input {
@@ -206,6 +222,42 @@ body {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4rem); }
+
+.results {
+  position: relative;
+  background-color: white;
+  border: 1px solid #E1E4E8;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-left: 5rem;
+  font-size: 1.5rem; }
+  .results__link {
+    text-decoration: none;
+    position: absolute;
+    margin-left: .5rem;
+    font-weight: 600;
+    color: #0366D6; }
+  .results__item {
+    display: block;
+    margin: 1rem; }
+    .results__item-icon {
+      height: 2.5rem; }
+    .results__item--individual {
+      border: 1px solid #E1E4E8;
+      border-radius: 5px;
+      padding: 2rem;
+      margin-left: 5rem;
+      margin-top: 2rem; }
+  .results__moreInfo {
+    position: relative; }
+    .results__moreInfo-avatar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 5rem;
+      border-radius: 50%; }
+    .results__moreInfo-title {
+      font-weight: 600; }
 
 .user {
   position: relative;
