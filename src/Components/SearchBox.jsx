@@ -57,7 +57,11 @@ const SearchBox = (props) => {
                 }
 
             } catch(err) {
-                console.log('error fetching information from github api: ', err);
+                console.log('error fetching username from github api: ', err);
+
+                console.log('user = ', user);
+                // if username is set and the new one is not found 
+
                 setError(true);
             }
 

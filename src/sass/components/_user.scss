@@ -22,12 +22,11 @@
     
 
     &__buttons {
-        position: absolute;
-        bottom: 2rem;
-        right: 5rem;
+        position: relative;
+        float: right;
 
         & button {
-            margin: 1rem;
+            margin-left: .5rem;
             border: 1px solid $color-primary-intermediate;
         }
     }

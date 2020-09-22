@@ -3,13 +3,12 @@
     background-color: $color-primary-light;
     border: 1px solid $color-primary-intermediate;
     border-radius: 5px;
-    // height: 10rem;
     padding: 1rem;  
     margin-left: 5rem;
     font-size: 1.5rem;
 
-    &__title {
-
+    @include respond(tab-port) {
+        font-size: 1.2rem;
     }
 
     &__link {
@@ -46,6 +45,13 @@
             right: 0;
             height: 5rem;
             border-radius: 50%;
+            border: 1px solid $color-primary-intermediate;
+
+            @include respond(tab-port) {
+                height: 3.5rem;
+                bottom: -1rem;
+                top: unset;
+            }
         }
 
         &-title {
